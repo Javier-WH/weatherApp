@@ -11,7 +11,7 @@
     align-items: center;
     min-height: 230px;
 }
-#weather-combobox {}
+
 
 #socket-container {
     display: flex;
@@ -19,6 +19,7 @@
     column-gap: 2vw;
     min-width: 300px;
     margin-top: 20px;
+    font-family: 'Poppins-Regular';
 }
 
 #icon-container {
@@ -80,6 +81,7 @@
 
 .data-item-text {
     font-size: max(1.5vw, 12px);
+    font-family: 'Poppins-Regular';
 }
 
 #data-container {
@@ -93,8 +95,8 @@
 
 .cristal {
     padding: 1vw;
-    color: rgb(255, 255, 255);
-    -webkit-text-stroke: 0.75px rgb(0, 0, 0);
+    color: black;
+
    
 
     background: rgba(255, 255, 255, 0.4);

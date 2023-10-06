@@ -1,5 +1,4 @@
-import './App.css';
-import WeatherApp from './modules/weaterAPP/weatherAPP';
+import AppTabs from "./modules/tabs/tabs";
 
 
 
@@ -8,7 +7,7 @@ function App() {
 
   return (
     <div className="App">
-      <WeatherApp/>
+      <AppTabs/>
     </div>
   );
 }
