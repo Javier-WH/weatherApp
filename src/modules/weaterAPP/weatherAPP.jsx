@@ -4,7 +4,8 @@ import ComboBox from "./dropBox/comboBox";
 import Alerts from './errors/alerts';
 import Background from './background/background';
 import IconSocket from './icon/inconSocket';
-import { APIinvalidDataError, APIConectionError} from './errors/error';
+import DataContainer from './dataContainer/dataContainer';
+import { APIinvalidDataError, APIConectionError } from './errors/error';
 
 import "./weatherAPP.css";
 
@@ -27,13 +28,13 @@ export default function WeatherApp() {
     if (selectedCity === null) {
       return
     }
-    
+
     async function getData() {
       const { countryCode, label: city } = selectedCity;
-    
+
 
       const data = await getWeatherData({ city, countryCode });
-      if(data.error){
+      if (data.error) {
         throw new APIConectionError();
       }
 
@@ -53,7 +54,7 @@ export default function WeatherApp() {
         throw new APIinvalidDataError();
       }
 
-  
+
 
       setTemperature(data.temp);
       setIconName(data.weather.icon);
@@ -67,34 +68,38 @@ export default function WeatherApp() {
     }
 
 
-    
-      getData().catch(error=>{
-        setError(error);
-      });
-      
-    
+
+    getData().catch(error => {
+      setError(error);
+    });
+
+
 
 
   }, [selectedCity])
 
 
-  if(selectedCity === null){
-    return <div id="weaterapp-container">
-    <ComboBox setSelectedCity={setSelectedCity} />
-    <Alerts error = {error} setError ={setError}/>
-    <Background/>
-  </div>
-  }else{
-    return <div id="weaterapp-container">
-    <ComboBox setSelectedCity={setSelectedCity} />
-    <Alerts error = {error} setError ={setError}/>
-    <Background/>
-    <IconSocket iconCode = {iconName} description={description} selectedCity= {selectedCity} datetime = {datetime} relativeHumidity= {relativeHumidity} temperature ={temperature}/>
-
-
-  </div>
-
-  }
-
+  return (
+    <div id="weaterapp-container">
+      <div id='combobox-container'>
+        <ComboBox setSelectedCity={setSelectedCity} />
+      </div>
+      <Alerts error={error} setError={setError} />
+      <Background />
+      {selectedCity && (
+        <>
+          <IconSocket
+            iconCode={iconName}
+            description={description}
+            selectedCity={selectedCity}
+            datetime={datetime}
+            relativeHumidity={relativeHumidity}
+            temperature={temperature}
+          />
+          <DataContainer sunRise={sunRise} sunSet={sunSet} windSpd={windSpd} press={press} />
+        </>
+      )}
+    </div>
+  );
 
 }

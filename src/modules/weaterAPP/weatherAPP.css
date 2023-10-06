@@ -1,49 +1,106 @@
-#weaterapp-container{
-    padding: 1vw;
+#weaterapp-container {
+    padding: 2vw;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     column-gap: 4vw;
 
 }
-#socket-container{
+#combobox-container{
+    display: flex;
+    align-items: center;
+    min-height: 230px;
+}
+#weather-combobox {}
+
+#socket-container {
     display: flex;
     align-items: center;
     column-gap: 2vw;
-    min-width: 300px ;
+    min-width: 300px;
+    margin-top: 20px;
 }
 
-#icon-container{
+#icon-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#weather-icon{
+#weather-icon {
     width: 10vw;
     min-width: 90px !important;
     height: auto;
     transform: scale(1.5);
+    filter: drop-shadow(0 0 3px rgb(88, 87, 87));
 
 }
 
-#descripcion{
+#descripcion {
     font-size: max(2vw, 12px);
 }
 
 
-#name-container{
+#name-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     font-size: max(1vw, 10px);
 }
 
-#name-container > span:nth-child(even){
+#name-container>span:nth-child(even) {
     font-size: max(2vw, 12px);
     font-weight: 600;
 }
 
-#temperature{
+#temperature {
     font-size: max(4vw, 20px);
+}
+
+#data-container {
+    flex-basis: 100%;
+}
+
+.data-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 2vw;
+    flex-basis: calc(50% - 4vw);
+    min-width: 300px
+}
+
+.data-item-image {
+    width: 10vw;
+    min-width: 50px;
+    height: auto;
+    filter: drop-shadow(0 0 3px rgb(88, 87, 87));
+
+}
+
+.data-item-text {
+    font-size: max(1.5vw, 12px);
+}
+
+#data-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    gap: 1vw;
+}
+
+.cristal {
+    padding: 1vw;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 0.75px rgb(0, 0, 0);
+   
+
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.7px);
+    -webkit-backdrop-filter: blur(3.7px);
+  
 }
