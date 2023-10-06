@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import getWeatherData from './fetch/fetch';
 import ComboBox from "./dropBox/comboBox";
 import Alerts from './errors/alerts';
+import Background from './background/background';
 import IconSocket from './icon/inconSocket';
 import { APIinvalidDataError, APIConectionError} from './errors/error';
 
@@ -81,12 +82,14 @@ export default function WeatherApp() {
     return <div id="weaterapp-container">
     <ComboBox setSelectedCity={setSelectedCity} />
     <Alerts error = {error} setError ={setError}/>
+    <Background/>
   </div>
   }else{
     return <div id="weaterapp-container">
     <ComboBox setSelectedCity={setSelectedCity} />
     <Alerts error = {error} setError ={setError}/>
-    <IconSocket iconCode = {iconName} description={description} selectedCity= {selectedCity} datetime = {datetime} relativeHumidity= {relativeHumidity}/>
+    <Background/>
+    <IconSocket iconCode = {iconName} description={description} selectedCity= {selectedCity} datetime = {datetime} relativeHumidity= {relativeHumidity} temperature ={temperature}/>
 
 
   </div>
